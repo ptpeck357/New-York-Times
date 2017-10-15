@@ -3,13 +3,13 @@ $(document).ready(function() {
 	 $("#search").on("click", function(event) {
         event.preventDefault();
 
-		var term = $("#searchterm").val();
+		var term = $("#searchterm").val().trim();
 
-		var number = $("#recordsretrieve").val();
+		var number = $("#recordsretrieve").val().trim();
 
-		var start = $("#startyear").val();
+		var start = $("#startyear").val().trim();
 
-		var end = $("#endyear").val();
+		var end = $("#endyear").val().trim();
 
 		var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 
@@ -17,10 +17,10 @@ $(document).ready(function() {
 
 			'api-key': "04f9720c85bb46ebb11cf2bc5398f238",
 			'q': term,
-			'begin_date': start,
-			'end_date': end,
-			'sort': "newest",
-			'page': number
+			'begin_date': [start],
+			'end_date': [end],
+			'sort': "newest"
+			// 'page': number
 		});
 
 		$.ajax({
@@ -33,17 +33,17 @@ $(document).ready(function() {
 
 		  console.log(result);
 
-		  for (var i = 0; i < 5; i++) {
+		  // for (var i = 0; i < result.response.docs[i].length; i++) {
 
-		  	var headline = result.response.docs[i].headline.main;
+		  // 	var headline = result.response.docs[i].headline.main;
 
-		  	var image = result.response.docs[i].multimedia[1].legacy.wide;
+		  // 	var image = result.response.docs[i].multimedia[1].legacy.wide;
 
-		    var author = result.response.docs[i].byline.orginal;
+		  //   var author = result.response.docs[i].byline.orginal;
 
-		  	$("#display").html("<img src=" + image + "/img>");
+		  // 	// $("#display").html("<img src=" + image + "/img>");
 
-		  }
+		  // }
 		 
 		}).fail(function(err) {
 
