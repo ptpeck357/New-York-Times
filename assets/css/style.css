@@ -8,7 +8,7 @@ body {
 
 .jumbotron h1 {
 	text-align: center;
-	color: black;
+	color: #10100a;
 	font-family: 'Lobster', cursive;
 	font-style: italic;
 	font-size: 80px;
@@ -28,7 +28,7 @@ body {
 
 .panel-default > .panel-heading-custom {
 	background: #6288a5; 
-	color: white;
+	color: #d9d9d9;
 }
 
 label {
