@@ -1,16 +1,16 @@
 $(document).ready(function() {
 
 	 $("#search").on("click", function(event) {
+
         event.preventDefault();
 
-        $("#display").html(" ");
+        $("#display").html("");
 
 		var term = $("#searchterm").val();
 
 		var number = $("#recordsretrieve").val();
-		console.log(number);
 
-		var start = $("#startyear").val().trim();
+		var start = $("#startyear").val();
 
 		var end = $("#endyear").val();
 
@@ -20,11 +20,8 @@ $(document).ready(function() {
 
 			'api-key': "04f9720c85bb46ebb11cf2bc5398f238",
 			'q': term,
-			// 'fq': number,
-			'begin_date': [start],
-			'end_date': [end],
-			'sort': "newest",
-			// 'page': number
+			'begin_date': [(start)],
+			'end_date': [(end)],
 		});
 
 		$.ajax({
@@ -39,19 +36,35 @@ $(document).ready(function() {
 
 		  for (var i = 0; i < number; i++) { 
 
-		  	var showdiv = $("<div class='work'>")
+		  	var showdiv = $("<div>")
 
 		  	var headline = result.response.docs[i].headline.main;
 
-		  	var webpage = result.response.docs[i].web_url;
+		    var author = result.response.docs[i].byline.original;
 
-		    var author = result.response.docs[i].byline.orginal;
+		    var date = result.response.docs[i].pub_date;
+
+		    var link = "<a id='link' href='" + result.response.docs[i].web_url + "'>" + "Webpage: " + result.response.docs[i].web_url + "</a>"
 
 		    var p = $("<h3>").text(i+1 + ".   Headline: " + headline);
 
+		    var p1 = $("<h4>").text(author);
+
+		    var datediv = $("<h4>").text("Publish Date: " + date);
+
+		    var linkdiv = $("<h4>").html(link)
+
+		    p1.addClass("author")
+
 		    p.addClass("headline")
 
-		    showdiv.append(p);
+		    showdiv.prepend(p);
+
+		    p.append(p1);
+
+		    p1.append(datediv);
+
+		    p1.append(linkdiv);
 
 		  	$("#display").append(showdiv);
 
@@ -66,8 +79,9 @@ $(document).ready(function() {
 });
 
 $("#clearbtn").on("click", function(event){
-	$(".formcontrol").empty();
+
 	$("#display").empty();
+
 })
 
 });
