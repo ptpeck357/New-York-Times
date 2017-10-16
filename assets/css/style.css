@@ -16,6 +16,11 @@ body {
 
 .jumbotron {
 	background-image: url(../images/newspaper.jpg);
+
+}
+
+#logo {
+	float: right;
 }
 
 .bodyheading {
@@ -58,6 +63,22 @@ input#clearbtn {
 	color: white;
 }
 
+#panelbody{
+	background-image: url(../images/article.jpg);
+	background-size: cover;
+}
+
 #display {
 	height: 100%;
+}
+
+.headline  {
+	margin-top: 80px;
+	font-family: 'Lobster', cursive;
+	width: 100%;
+	padding: 15px;
+	line-height: 30px;
+	color: #fff;
+	text-align: center;
+	background: #6288a5;
 }
