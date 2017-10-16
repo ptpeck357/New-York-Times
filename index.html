@@ -1,6 +1,9 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
+
 	<title>New York Times</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -19,6 +22,8 @@
 
 </head>
 
+
+
 <body>
 
 <div class="container">
@@ -27,6 +32,8 @@
 
 		<h1>The New York Times</h1>
 
+		<img id="logo" src="assets/images/APIlogo.jpg">
+		
 	</div>
 
 	<br>
@@ -41,19 +48,26 @@
 
 	            <label for="term">Search Term</label><br>
 
-	            <input type="text" class="form-control" id="searchterm"><br>
+	            <input type="text" class="form-control" id="searchterm">
+	            <br>
 
-	            <label for="records">Number of Records to Retrieve:</label><br>
+	            <label for="records">Number of Records to Retrieve:</label>
+	            <br>
 
-	            <input type="number" value="10"  min="1" max="10" placeholder="1-10" class="form-control" id="recordsretrieve"><br>
+	            <input type="number" min="1" max="10" placeholder="1-10" class="form-control" id="recordsretrieve">
+	            <br>
 
-	            <label for="startyear">Start Year (Optional)</label><br>
+	            <label for="startyear">Start Year (Optional)</label>
+	            <br>
 
-	            <input type="text" class="form-control" id="startyear" placeholder="format: yyyymmdd"><br>
+	            <input type="text" class="form-control" id="startyear" placeholder="format: yyyymmdd">
+	            <br>
 
-	            <label for="endyear">End Year (Optional)</label><br>
+	            <label for="endyear">End Year (Optional)</label>
+	            <br>
 
-	            <input type="text" class="form-control" id="endyear" placeholder="format: yyyymmdd"><br>
+	            <input type="text" class="form-control" id="endyear" placeholder="format: yyyymmdd">
+	            <br>
 
 	            <button id="search" type="submit">Search</button>
 
@@ -71,16 +85,22 @@
 
 	    <div class="panel-heading panel-heading-custom bodyheading">Top Articles</div>
 
-	    <div class="panel-body">
-	    	<div id="display"></div>
+	    <div class="panel-body" id="panelbody">
+	    	<div id="display">
+	    		<br>
+	    		<br>
+	    		<br>
+	    		<br>
+	    		<br>
+	    	</div>
 	    </div>
 	  
   	</div>
 
 </div>
 
-
-<script type="text/javascript" src="./assets/javascript/javascript.js"></script>
+	<script type="text/javascript" src="./assets/javascript/javascript.js"></script>
 
 </body>
+
 </html>
