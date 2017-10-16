@@ -73,12 +73,25 @@ input#clearbtn {
 }
 
 .headline  {
+	font-family: "Times New Roman", Georgia, Serif;
 	margin-top: 80px;
-	font-family: 'Lobster', cursive;
 	width: 100%;
 	padding: 15px;
 	line-height: 30px;
 	color: #fff;
 	text-align: center;
 	background: #6288a5;
+}
+
+.author {
+ 	font-family: "Times New Roman", Georgia, Serif;
+ 	font-style: italic;
+ 	color: #fff;
+	text-align: center;
+	font-size: 15px;
+}
+
+#link {
+	color: #fff;
+	text-decoration: none;
 }
