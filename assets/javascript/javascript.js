@@ -3,13 +3,16 @@ $(document).ready(function() {
 	 $("#search").on("click", function(event) {
         event.preventDefault();
 
-		var term = $("#searchterm").val().trim();
+        $("#display").html(" ");
 
-		var number = $("#recordsretrieve").val().trim();
+		var term = $("#searchterm").val();
+
+		var number = $("#recordsretrieve").val();
+		console.log(number);
 
 		var start = $("#startyear").val().trim();
 
-		var end = $("#endyear").val().trim();
+		var end = $("#endyear").val();
 
 		var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 
@@ -17,9 +20,10 @@ $(document).ready(function() {
 
 			'api-key': "04f9720c85bb46ebb11cf2bc5398f238",
 			'q': term,
+			// 'fq': number,
 			'begin_date': [start],
 			'end_date': [end],
-			'sort': "newest"
+			'sort': "newest",
 			// 'page': number
 		});
 
@@ -33,17 +37,25 @@ $(document).ready(function() {
 
 		  console.log(result);
 
-		  // for (var i = 0; i < result.response.docs[i].length; i++) {
+		  for (var i = 0; i < number; i++) { 
 
-		  // 	var headline = result.response.docs[i].headline.main;
+		  	var showdiv = $("<div class='work'>")
 
-		  // 	var image = result.response.docs[i].multimedia[1].legacy.wide;
+		  	var headline = result.response.docs[i].headline.main;
 
-		  //   var author = result.response.docs[i].byline.orginal;
+		  	var webpage = result.response.docs[i].web_url;
 
-		  // 	// $("#display").html("<img src=" + image + "/img>");
+		    var author = result.response.docs[i].byline.orginal;
 
-		  // }
+		    var p = $("<h3>").text(i+1 + ".   Headline: " + headline);
+
+		    p.addClass("headline")
+
+		    showdiv.append(p);
+
+		  	$("#display").append(showdiv);
+
+		  }
 		 
 		}).fail(function(err) {
 
