@@ -20,8 +20,8 @@ $(document).ready(function() {
 
 			'api-key': "04f9720c85bb46ebb11cf2bc5398f238",
 			'q': term,
-			'begin_date': [(start)],
-			'end_date': [(end)],
+			'begin_date': start,
+			'end_date': end,
 		});
 
 		$.ajax({
