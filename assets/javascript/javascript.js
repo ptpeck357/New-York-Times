@@ -25,16 +25,11 @@ $(document).ready(function() {
 		});
 
 		$.ajax({
-
 		  url: url,
-
 		  method: 'GET',
-
 		}).done(function(result) {
 
-		  console.log(result);
-
-		  for (var i = 0; i < number; i++) { 
+		  for (var i = 0; i < number; i++) {
 
 		  	var showdiv = $("<div>")
 
@@ -44,13 +39,13 @@ $(document).ready(function() {
 
 		    var date = result.response.docs[i].pub_date;
 
-		    var link = "<a id='link' href='" + result.response.docs[i].web_url + "'>" + "Webpage: " + result.response.docs[i].web_url + "</a>"
+		    var link = "<a id='link' href='" + result.response.docs[i].web_url + "'>" + "Webpage" + "</a>"
 
 		    var p = $("<h3>").text(i+1 + ".   Headline: " + headline);
 
 		    var p1 = $("<h4>").text(author);
 
-		    var datediv = $("<h4>").text("Publish Date: " + date);
+		    var datediv = $("<h4>").text("Publish Date: " + moment(date).format("MMM Do YY"));
 
 		    var linkdiv = $("<h4>").html(link)
 
@@ -69,13 +64,13 @@ $(document).ready(function() {
 		  	$("#display").append(showdiv);
 
 		  }
-		 
+
 		}).fail(function(err) {
 
 		  throw err;
 
 		});
-	
+
 });
 
 $("#clearbtn").on("click", function(event){
